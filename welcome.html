@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="logoutButton">Logout</button>
+    <h1>Welcome - Home Page</h1>
+
+    <script type="module">
+        const user = sessionStorage.getItem("user")
+        console.log(user)
+        if (!user) {
+            window.location.pathname = './index.html'
+        }
+
+        function logout() {
+            sessionStorage.removeItem('user')
+            window.location.pathname = 'signup.html'
+        }
+
+        document.getElementById('logoutButton')?.addEventListener('click', logout);
+    </script>
+</body>
+</html>
